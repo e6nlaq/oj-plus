@@ -1,0 +1,6 @@
+test/
+.vscode/
+test.*
+a.out
+a.exe
+script/
