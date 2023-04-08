@@ -86,11 +86,6 @@ int main(int argc, char const *argv[])
 			cmd = "tsc " + name;
 		}
 
-		if (cmd != "")
-		{
-			system(cmd.c_str());
-		}
-
 		// テストコマンド
 		string test = "";
 
@@ -128,7 +123,7 @@ int main(int argc, char const *argv[])
 		}
 
 		// 実行・提出
-		string run = (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S && oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
+		string run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S && oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
 		system(run.c_str());
 	}
 
