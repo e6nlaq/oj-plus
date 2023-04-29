@@ -58,6 +58,7 @@ int main(int argc, char const *argv[])
 		int lang = 0;
 
 		bool yes = count(args.begin(), args.end(), "-y");
+		bool desc = count(args.begin(), args.end(), "-e");
 
 		// 取得した拡張子を小文字に変換
 		transform(fex.begin(), fex.end(), fex.begin(), ::tolower);
@@ -123,7 +124,7 @@ int main(int argc, char const *argv[])
 		}
 
 		// 実行・提出
-		string run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S && oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
+		string run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S " + (desc ? "-e 1e-6" : "") + "&& oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
 		system(run.c_str());
 	}
 
