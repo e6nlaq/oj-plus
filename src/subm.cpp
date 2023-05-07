@@ -44,9 +44,9 @@ int main(int argc, char const *argv[])
 {
 	vector<string> args(argv, argv + argc);
 
-	if (argc > 3)
+	if (argc > 4)
 	{
-		cout << "引数は2つ以下である必要があります。\n"
+		cout << "引数は3つ以下である必要があります。\n"
 			 << "詳しくは https://github.com/e6nlaq/oj-plus#readme をご覧ください。\n";
 		exit(1);
 	}
