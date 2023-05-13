@@ -13,10 +13,16 @@
 書式
 
 ```
-get [コンテストID] [問題ID(aとかbとか)]
+get [プラットフォーム] [コンテストID] [問題ID(aとかbとか)]
 ```
 
 そのまんま。URL打つ手間と`test/`消す手間が省けただけ(((
+
+プラットフォームは以下のどれか
+
+- atcoder
+- codeforces
+- url
 
 ## 提出
 
@@ -34,7 +40,7 @@ subm [ファイル名]
 - C(`gcc`)
 - C#(`csc.exe`)
 - JavaScript(`node`)
-- TypeScript(`tsc`)
+- TypeScript(`tsc`+`node`)
 - Python(`python3`)
 - BrainF**k(`bf`)
 - Text(`cat`)
