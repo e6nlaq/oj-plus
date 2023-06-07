@@ -89,7 +89,7 @@ int main(int argc, char const *argv[])
 	}
 	else if (fex == "cs")
 	{
-		test = "./ojp/" + pna + ".exe";
+		test = "./.ojp/" + pna + ".exe";
 	}
 	else if (fex == "js" || fex == "mjs")
 	{
