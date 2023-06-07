@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	vector<string> args(argv, argv + argc);
 
 	system("rm -rf test/");
-	string com = "echo hoge";
+	string com = "echo Unknown Website";
 
 	if (args[1] == "atcoder")
 	{
