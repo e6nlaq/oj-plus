@@ -11,7 +11,7 @@
 ## インストール
 
 ```
-wget https://github.com/e6nlaq/oj-plus/releases/download/v1.1.1/Install.sh
+wget https://github.com/e6nlaq/oj-plus/releases/download/vX.X.X/Install.sh
 chmod +x ./Install.sh
 ./Install.sh
 ```
