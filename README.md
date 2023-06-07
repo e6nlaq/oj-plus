@@ -8,6 +8,14 @@
 
 実行にはojツール及びUbuntuが必要です。
 
+## インストール
+
+```
+wget https://github.com/e6nlaq/oj-plus/releases/download/v1.1.1/Install.sh
+chmod +x ./Install.sh
+./Install.sh
+```
+
 ## 問題のテストケース取得
 
 書式
