@@ -38,7 +38,7 @@ subm [ファイル名]
 
 - C++(`g++`)
 - C(`gcc`)
-- C#(`csc.exe`)
+- C#(`dotnet.exe build`)
 - JavaScript(`node`)
 - TypeScript(`tsc`+`node`)
 - Python(`python3`)

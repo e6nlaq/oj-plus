@@ -48,6 +48,7 @@ int main(int argc, char const *argv[])
 	string name = args[1];
 	string fex = get_ex(name);
 	int lang = 0;
+	string pna = get_filename(name);
 
 	bool yes = count(args.begin(), args.end(), "-y");
 	bool desc = count(args.begin(), args.end(), "-e");
@@ -71,7 +72,7 @@ int main(int argc, char const *argv[])
 	}
 	else if (fex == "cs")
 	{
-		cmd = "csc.exe " + name + " /out:a.exe";
+		cmd = "dotnet.exe " + name + " -o ./.ojp";
 		lang = 4012;
 	}
 	else if (fex == "ts")
@@ -88,7 +89,7 @@ int main(int argc, char const *argv[])
 	}
 	else if (fex == "cs")
 	{
-		test = "./a.exe";
+		test = "./ojp/" + pna + ".exe";
 	}
 	else if (fex == "js" || fex == "mjs")
 	{
