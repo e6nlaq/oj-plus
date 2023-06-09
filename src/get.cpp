@@ -30,6 +30,11 @@ int main(int argc, char const *argv[])
 	{
 		com = "oj d https://codeforces.com/contest/" + args[2] + "/problem/" + args[3];
 	}
+	else if (args[1] == "yukicoder")
+	{
+		com = "oj d https://yukicoder.me/problems/no/" + args[2];
+	}
+
 	system(com.c_str());
 
 	return 0;
