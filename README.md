@@ -29,8 +29,8 @@ get [プラットフォーム] [コンテストID] [問題ID(aとかbとか)]
 プラットフォームは以下のどれか
 
 - atcoder
-- codeforces
-- yukicoder
+- codeforces(自動提出は無し)
+- yukicoder(動作未確認)
 - url
 
 ## 提出
