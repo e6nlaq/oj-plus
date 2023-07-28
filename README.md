@@ -43,21 +43,30 @@ subm [ファイル名]
 
 これが本体といっても過言ではない()
 
-今のとこ以下の言語には確実に対応してる
+AtCoderで使えるほぼすべての言語に対応しているよ
 
-- C++(`g++`)
+大半が動作未確認なのでIssue立ててくれるとうれしいです
+
+以下実行する際に使うアプリ
+
 - C(`gcc`)
-- C#(`dotnet.exe build`)
+- C++(`g++`)
+- Java(`java`+`javac`)
+- Python(`python3`)
+- Bash(`bash`)
+- bc(`bc`)
+- Awk(`awk`)
+- C#(`dotnet`)
+- Crystal(`crystal`)
+- D(`rdmd`)
+- Dart(`dart`)
+- dc(`dc`)
+- F#(`dotnet`)
 - JavaScript(`node`)
 - TypeScript(`tsc`+`node`)
-- Python(`python3`)
-- BrainF**k(`bf`)
+- Brainf**k(`bf`)
 - Text(`cat`)
 - Bash(`bash`)
-
-一応使えるけど動作未確認
-
-- Ruby(`ruby`)
 
 オプション
 

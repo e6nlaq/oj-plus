@@ -45,10 +45,10 @@ int main(int argc, char const *argv[])
 	vector<string> args(argv, argv + argc);
 
 	// ファイル名と拡張子
-	string name = args[1];
-	string fex = get_ex(name);
+	string name = args[1];	   // 完全なファイル名
+	string fex = get_ex(name); // 拡張子
 	int lang = 0;
-	string pna = get_filename(name);
+	string pna = get_filename(name); // 拡張子なしファイル名
 
 	bool yes = count(args.begin(), args.end(), "-y");
 	bool desc = count(args.begin(), args.end(), "-e");
@@ -58,22 +58,29 @@ int main(int argc, char const *argv[])
 
 	// 複数の拡張子を持つスクリプト
 	const set<string> cpp = {"cpp", "cc", "c++", "cp", "cxx"};
+	const set<string> java = {"java", "jav"};
+	const set<string> fs = {"fs", "fsx"};
 
 	// ビルド
 	string cmd = "";
-	if (cpp.count(fex))
-	{
-		cmd = "g++ " + name + " -o a.out -std=c++17 -I .";
-	}
-	else if (fex == "c")
+	if (fex == "c")
 	{
 		cmd = "gcc " + name + " -o a.out";
 		lang = 4001;
 	}
+	else if (cpp.count(fex))
+	{
+		cmd = "g++ " + name + " -o a.out -std=c++17 -I .";
+	}
+	else if (java.count(fex))
+	{
+		cmd = "javac " + name;
+		lang = 4005;
+	}
 	else if (fex == "cs")
 	{
-		cmd = "dotnet.exe " + name + " -o ./.ojp";
-		lang = 4012;
+		cmd = "dotnet " + name + " -o ./.ojp";
+		lang = 4010;
 	}
 	else if (fex == "ts")
 	{
@@ -83,13 +90,48 @@ int main(int argc, char const *argv[])
 	// テストコマンド
 	string test = "";
 
-	if (fex == "py")
+	if (java.count(fex))
+	{
+		test = "java " + pna + ".class";
+	}
+	else if (fex == "py")
 	{
 		test = "python3 " + name;
 	}
+	else if (fex == "sh")
+	{
+		test = "bash " + name;
+	}
+	else if (fex == "bc")
+	{
+		test = "cat " + name + " | bc";
+		lang = 4008;
+	}
+	else if (fex == "awk")
+	{
+		test = "awk -f " + name;
+	}
 	else if (fex == "cs")
 	{
-		test = "./.ojp/" + pna + ".exe";
+		test = "./.ojp/" + pna;
+	}
+	else if (fex == "cr")
+	{
+		test = "crystal run " + name;
+	}
+	else if (fex == "d")
+	{
+		test = "rdmd " + name;
+	}
+	else if (fex == "dart")
+	{
+		test = "dart " + name;
+		lang = 4018;
+	}
+	else if (fs.count(fex))
+	{
+		test = "dotnet fsi " + name;
+		lang = 4022;
 	}
 	else if (fex == "js" || fex == "mjs")
 	{
@@ -110,10 +152,6 @@ int main(int argc, char const *argv[])
 	else if (fex == "txt")
 	{
 		test = "cat " + name;
-	}
-	else if (fex == "sh")
-	{
-		test = "bash " + name;
 	}
 
 	// Codeforces対策
