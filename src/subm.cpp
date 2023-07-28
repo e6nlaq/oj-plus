@@ -116,8 +116,28 @@ int main(int argc, char const *argv[])
 		test = "bash " + name;
 	}
 
+	// Codeforces対策
+	ifstream file;
+	file.open("ojp.txt", ios::in);
+	string read = "";
+	bool codeforces = false;
+	while (getline(file, read))
+	{
+		if (read == "codeforces")
+		{
+			codeforces = true;
+			break;
+		}
+	}
+
 	// 実行・提出
-	string run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S " + (desc ? "-e 1e-6" : "") + "&& oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
+	string run = "echo Hello world";
+
+	if (!codeforces)
+		run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S " + (desc ? "-e 1e-6" : "") + "&& oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
+	else
+		run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S " + (desc ? "-e 1e-6" : "");
+
 	system(run.c_str());
 
 	return 0;

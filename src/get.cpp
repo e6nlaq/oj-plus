@@ -9,6 +9,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	vector<string> args(argv, argv + argc);
+	string web = "other";
 
 	system("rm -rf test/");
 	string com = "echo Unknown Website";
@@ -29,6 +30,7 @@ int main(int argc, char const *argv[])
 	else if (args[1] == "codeforces")
 	{
 		com = "oj d https://codeforces.com/contest/" + args[2] + "/problem/" + args[3];
+		web = "codeforces";
 	}
 	else if (args[1] == "yukicoder")
 	{
@@ -36,6 +38,11 @@ int main(int argc, char const *argv[])
 	}
 
 	system(com.c_str());
+
+	ofstream file;
+	file.open("ojp.txt", ios::out);
+	file << web << endl;
+	file.close();
 
 	return 0;
 }
