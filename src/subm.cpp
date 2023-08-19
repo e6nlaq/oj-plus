@@ -70,7 +70,7 @@ int main(int argc, char const *argv[])
 	}
 	else if (cpp.count(fex))
 	{
-		cmd = "g++ " + name + " -o a.out -std=c++17 -I .";
+		cmd = "g++ " + name + " -o a.out -std=c++17 -I . -fsanitize=undefined";
 	}
 	else if (java.count(fex))
 	{
