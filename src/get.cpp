@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 	system("rm -rf test/");
 	string com = "echo Unknown Website";
 
-	if (args[1] == "atcoder")
+	if (args[1] == "atcoder" || args[1] == "ac")
 	{
 		string contest = args[2];
 		string q = contest + "_" + args[3];
@@ -27,12 +27,17 @@ int main(int argc, char const *argv[])
 	{
 		com = "oj d " + args[2];
 	}
-	else if (args[1] == "codeforces")
+	else if (args[1] == "codeforces" || args[1] == "cf")
 	{
 		com = "oj d https://codeforces.com/contest/" + args[2] + "/problem/" + args[3];
 		web = "codeforces";
 	}
-	else if (args[1] == "yukicoder")
+	else if (args[1] == "codeforces_gym" || args[1] == "cf_gym")
+	{
+		com = "oj d https://codeforces.com/gym/" + args[2] + "/problem/" + args[3];
+		web = "codeforces";
+	}
+	else if (args[1] == "yukicoder" || args[1] == "yc")
 	{
 		com = "oj d https://yukicoder.me/problems/no/" + args[2];
 	}
