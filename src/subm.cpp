@@ -66,25 +66,26 @@ int main(int argc, char const *argv[])
 	if (fex == "c")
 	{
 		cmd = "gcc " + name + " -o a.out";
-		lang = 4001;
+		lang = 5017;
 	}
 	else if (cpp.count(fex))
 	{
-		cmd = "g++ " + name + " -o a.out -std=c++17 -I . -fsanitize=undefined";
+		cmd = "g++ " + name + " -o a.out -std=c++23 -I . -fsanitize=undefined";
 	}
 	else if (java.count(fex))
 	{
 		cmd = "javac " + name;
-		lang = 4005;
+		lang = 5005;
 	}
 	else if (fex == "cs")
 	{
 		cmd = "dotnet " + name + " -o ./.ojp";
-		lang = 4010;
+		lang = 5003;
 	}
 	else if (fex == "ts")
 	{
 		cmd = "tsc " + name;
+		lang = 5058;
 	}
 
 	// テストコマンド
@@ -97,15 +98,17 @@ int main(int argc, char const *argv[])
 	else if (fex == "py")
 	{
 		test = "python3 " + name;
+		lang = 5063;
 	}
 	else if (fex == "sh")
 	{
 		test = "bash " + name;
+		lang = 5023;
 	}
 	else if (fex == "bc")
 	{
 		test = "cat " + name + " | bc";
-		lang = 4008;
+		lang = 5035;
 	}
 	else if (fex == "awk")
 	{
@@ -136,6 +139,7 @@ int main(int argc, char const *argv[])
 	else if (fex == "js" || fex == "mjs")
 	{
 		test = "node " + name;
+		lang = 5009;
 	}
 	else if (fex == "ts")
 	{
