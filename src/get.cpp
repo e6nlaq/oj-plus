@@ -40,6 +40,7 @@ int main(int argc, char const *argv[])
 	else if (args[1] == "yukicoder" || args[1] == "yc")
 	{
 		com = "oj d https://yukicoder.me/problems/no/" + args[2];
+		web = "nosub";
 	}
 
 	system(com.c_str());
