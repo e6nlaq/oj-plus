@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])
 	const set<string> java = {"java", "jav"};
 	const set<string> fs = {"fs", "fsx"};
 
-	// ビルド
+	// コンパイル
 	string cmd = "";
 	if (fex == "c")
 	{
@@ -162,12 +162,12 @@ int main(int argc, char const *argv[])
 	ifstream file;
 	file.open("ojp.txt", ios::in);
 	string read = "";
-	bool codeforces = false;
+	bool nosub = false;
 	while (getline(file, read))
 	{
-		if (read == "codeforces")
+		if (read == "nosub")
 		{
-			codeforces = true;
+			nosub = true;
 			break;
 		}
 	}
@@ -175,7 +175,7 @@ int main(int argc, char const *argv[])
 	// 実行・提出
 	string run = "echo Hello world";
 
-	if (!codeforces)
+	if (!nosub)
 		run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S " + (desc ? "-e 1e-6" : "") + "&& oj s " + name + (yes ? " --yes" : "") + (lang ? " --language " + to_string(lang) : "");
 	else
 		run = (cmd != "" ? cmd + " && " : "") + (test == "" ? "oj t" : "oj t -c \"" + test + "\"") + " -N -S " + (desc ? "-e 1e-6" : "");
